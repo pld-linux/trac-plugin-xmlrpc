@@ -3,7 +3,7 @@
 Summary:	Remote Procedure Call plugin for Trac
 Name:		trac-plugin-%{plugin}
 Version:	0
-Release:	0.3
+Release:	0.4
 License:	BSD
 Group:		Applications/WWW
 # Source0Download:	http://trac-hacks.org/changeset/latest/xmlrpcplugin?old_path=/&filename=xmlrpcplugin&format=zip
