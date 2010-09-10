@@ -1,14 +1,13 @@
 %define		trac_ver	0.12
 %define		plugin		xmlrpc
-Summary:	Add simple support for renaming/moving wiki pages
+Summary:	Remote Procedure Call plugin for Trac
 Name:		trac-plugin-%{plugin}
 Version:	0
 Release:	0.3
 License:	BSD
 Group:		Applications/WWW
 # Source0Download:	http://trac-hacks.org/changeset/latest/xmlrpcplugin?old_path=/&filename=xmlrpcplugin&format=zip
-#Source0:	%{plugin}plugin.zip
-Source0:	http://trac-hacks.org/changeset/latest/xmlrpcplugin?old_path=/&filename=xmlrpcplugin&format=zip
+Source0:	%{plugin}plugin.zip
 # Source0-md5:	c7dc2526551d2955721fc10d55a3a86b
 URL:		http://trac-hacks.org/wiki/XmlRpcPlugin
 BuildRequires:	python-devel
