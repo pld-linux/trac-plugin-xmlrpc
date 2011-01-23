@@ -11,6 +11,7 @@ Source0:	%{plugin}plugin.zip
 # Source0-md5:	c7dc2526551d2955721fc10d55a3a86b
 URL:		http://trac-hacks.org/wiki/XmlRpcPlugin
 BuildRequires:	python-devel
+BuildRequires:	unzip
 Requires:	trac >= %{trac_ver}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
