@@ -11,6 +11,9 @@ Source0:	%{plugin}plugin.zip
 # Source0-md5:	c7dc2526551d2955721fc10d55a3a86b
 URL:		http://trac-hacks.org/wiki/XmlRpcPlugin
 BuildRequires:	python-devel
+BuildRequires:	python-modules
+BuildRequires:	python-setuptools
+BuildRequires:	rpm-pythonprov
 BuildRequires:	unzip
 Requires:	trac >= %{trac_ver}
 BuildArch:	noarch
@@ -20,8 +23,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This plugin allows Trac plugins to export select parts of their
 interface via XML-RPC and JSON-RPC (if json or simplejson is
 available). Latest trunk version includes a pluggable API for
-extending protocols, and see for instance TracRpcProtocolsPlugin
-for more protocols.
+extending protocols, and see for instance TracRpcProtocolsPlugin for
+more protocols.
 
 %prep
 %setup -q -n %{plugin}plugin
