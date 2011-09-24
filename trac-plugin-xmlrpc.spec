@@ -2,12 +2,11 @@
 %define		plugin		xmlrpc
 Summary:	Remote Procedure Call plugin for Trac
 Name:		trac-plugin-%{plugin}
-Version:	0
-Release:	0.4
+Version:	1.1.2
+Release:	1
 License:	BSD
 Group:		Applications/WWW
-# Source0Download:	http://trac-hacks.org/changeset/latest/xmlrpcplugin?old_path=/&filename=xmlrpcplugin&format=zip
-Source0:	%{plugin}plugin.zip
+Source0:	http://trac-hacks.org/changeset/latest/xmlrpcplugin?old_path=/&filename=xmlrpcplugin&format=zip#/%{plugin}-%{version}.zip
 # Source0-md5:	c7dc2526551d2955721fc10d55a3a86b
 URL:		http://trac-hacks.org/wiki/XmlRpcPlugin
 BuildRequires:	python-devel
@@ -27,16 +26,15 @@ extending protocols, and see for instance TracRpcProtocolsPlugin for
 more protocols.
 
 %prep
-%setup -q -n %{plugin}plugin
+%setup -qc
+mv %{plugin}plugin/trunk/* .
 
 %build
-cd trunk
 %{__python} setup.py build
 %{__python} setup.py egg_info
 
 %install
 rm -rf $RPM_BUILD_ROOT
-cd trunk
 %{__python} setup.py install \
 	--single-version-externally-managed \
 	--optimize 2 \
@@ -48,14 +46,7 @@ cd trunk
 rm -rf $RPM_BUILD_ROOT
 
 %post
-if [ "$1" = "1" ]; then
-	%banner -e %{name} <<-'EOF'
-	To enable the %{plugin} plugin, add to conf/trac.ini:
-
-	[components]
-	tracrpc.* = enabled
-EOF
-fi
+trac-enableplugin "tracrpc.*"
 
 %files
 %defattr(644,root,root,755)
